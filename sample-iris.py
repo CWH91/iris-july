@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from sklearn import datasets
+
 from sklearn.ensemble import RandomForestClassifier
 
 st.write("""
@@ -27,9 +27,9 @@ df = user_input_features()
 st.subheader('User Input parameters')
 st.write(df)
 
-iris = datasets.load_iris()
+iris = pd.read_csv('https://raw.githubusercontent.com/CWH91/iris-july/main/IRIS.csv')
 X = iris.data
-Y = iris.target
+Y = iris.species
 
 clf = RandomForestClassifier()
 clf.fit(X, Y)
